@@ -1,0 +1,7 @@
+{
+  "name": "UANL Eventos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
