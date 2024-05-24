@@ -9,14 +9,27 @@
 <ion-content [fullscreen]="true">
   <div class="main-container">
     <div class="btns">
-      <ion-button shape="round" (click)="crearEvento()">Registrar Evento</ion-button>
-      <ion-button shape="round" (click)="gestionarEvento()">Gestionar Evento</ion-button>
+      <div class="eventos">
+        <ion-button shape="round" (click)="crearEvento()">Registrar Evento</ion-button>
+        <ion-button shape="round" (click)="gestionarEvento()">Gestionar Evento</ion-button>
+      </div>
+      <div class="busqueda">
+        <ion-input shape="round" [(ngModel)]="dependencia" label="Búsqueda por dependencia" labelPlacement="floating"></ion-input>
+        <ion-button shape="round" (click)="busqueda()">Buscar</ion-button>
+      </div>
     </div>
     <ion-grid>
       <ion-row>
-        <ion-col size="12" size-md="2" *ngFor="let evento of eventosArray">
-          <app-evento (click)="goToEvento(evento.id)" [inputId]="evento.id"></app-evento>
-        </ion-col>
+        <ng-container *ngIf="eventosFiltrados.length > 0; else noResultados">
+          <ion-col size="12" size-md="2" *ngFor="let evento of eventosFiltrados">
+            <app-evento (click)="goToEvento(evento.id)" [inputId]="evento.id"></app-evento>
+          </ion-col>
+        </ng-container>
+        <ng-template #noResultados>
+          <ion-col size="12">
+            <p>No se encontraron resultados.</p>
+          </ion-col>
+        </ng-template>
       </ion-row>
     </ion-grid>
   </div>

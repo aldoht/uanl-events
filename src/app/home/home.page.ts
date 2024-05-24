@@ -10,12 +10,18 @@ import { EventsService } from '../events.service';
 })
 export class HomePage implements OnInit {
   eventosArray: EventModel[] = this.eventsService.events;
+  eventosFiltrados: EventModel[] = [];
+  dependencia: string = "";
+  busquedaActiva: boolean = false;
 
   constructor(private router: Router, private eventsService: EventsService) { }
 
   ngOnInit(): void {
     /** Si no está loggeado, usar esta línea */
     // this.router.navigate(['/home/login']);
+
+    // Inicialmente, mostramos todos los eventos
+    this.eventosFiltrados = this.eventosArray;
   }
 
   crearEvento() {
@@ -30,5 +36,17 @@ export class HomePage implements OnInit {
 
   goToEvento(id: string) {
     this.router.navigate(['/home/evento', id]);
+  }
+
+  busqueda() {
+    if (this.dependencia !== "") {
+      this.busquedaActiva = true;
+      this.eventosFiltrados = this.eventosArray.filter(evento =>
+        evento.dependencia.toUpperCase() === this.dependencia.toUpperCase()
+      );
+    } else {
+      this.busquedaActiva = false;
+      this.eventosFiltrados = this.eventosArray;
+    }
   }
 }
