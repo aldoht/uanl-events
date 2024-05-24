@@ -1,0 +1,47 @@
+ion-text {
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.modal-container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.debit-card-input {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .expiry-cvv {
+    display: flex;
+    gap: 10px;
+  }
+
+  .expiry-cvv div {
+    flex: 1;
+  }
+}

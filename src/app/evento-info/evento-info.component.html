@@ -1,0 +1,56 @@
+<ion-content>
+  <div class="main-container">
+    <ion-text>
+      <h1>Evento: {{evento.nombre}}</h1>
+      <h3>Fecha y hora: {{evento.fecha}} a las {{evento.hora}}</h3>
+      <h4 *ngIf="evento.costo != 0">Tiene un costo de ${{evento.costo}} MXN</h4>
+      <h4 *ngIf="evento.costo === 0">Es gratis</h4>
+      <h5>Es {{evento.tipo}} con privacidad {{evento.privacidad}} </h5>
+      <h6 *ngIf="evento.asientos">Asientos disponibles: {{evento.asientos}} </h6>
+      <h6 *ngIf="!evento.asientos">No es numerado</h6>
+      <p>{{evento.descripcion}}. Fue organizado por {{evento.dependencia}}.</p>
+    </ion-text>
+    <ion-button (click)="registrar()">Registrarme</ion-button>
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Boleto</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <div class="modal-container">
+            <div class="debit-card-input">
+              <label for="cardNumber">Número de tarjeta</label>
+              <input type="text" id="cardNumber" [(ngModel)]="cardNumber"/>
+
+              <label for="cardHolder">Nombre del titular</label>
+              <input type="text" id="cardHolder" [(ngModel)]="cardHolder"/>
+
+              <div class="expiry-cvv">
+                <div>
+                  <label for="expiryMonth">Mes de expiración</label>
+                  <input type="text" id="expiryMonth" [(ngModel)]="expiryMonth"/>
+                </div>
+                <div>
+                  <label for="expiryYear">Año de expiración</label>
+                  <input type="text" id="expiryYear" [(ngModel)]="expiryYear"/>
+                </div>
+                <div>
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" [(ngModel)]="cvv"/>
+                </div>
+              </div>
+              <ion-button [disabled]="!cardNumber || !cardHolder || !expiryMonth || !expiryYear || !cvv" (click)="generateQRCode()">Pagar</ion-button>
+            </div>
+            <canvas *ngIf="evento.asientos != 0" #canvas id="canvas"></canvas>
+            <h1 *ngIf="evento.asientos == 0">Ya no hay cupo</h1>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
+</ion-content>
