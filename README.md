@@ -5,6 +5,10 @@
 2. Después, abrimos el proyecto de la *API* en Visual Studio y lo ejecutamos, se abrirá una ventana de un navegador con dirección http://localhost:**58683**, si no se inicia o no es ese puerto, el proyecto no funcionará
 3. Seguido de ello, abrimos la terminal en la carpeta del proyecto de *Ionic y Angular*, nos aseguramos de tener instalado **Node.js** y **npm**, y posteriormente ejecutamos:
 > npm install
+Si esto no es suficiente, ejecute:
+> npm install -g @angular/cli
+> npm install -g @ionic/cli
+Además, en cuanto a las funcionalidades de *Firebase*, sólo seleccione Authentication
 4. Abrimos la página en local y ya accedemos a las funcionalidades
 
 ## Funcionalidades
