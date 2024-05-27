@@ -75,9 +75,11 @@ export class GestionarEventoComponent  implements OnInit {
     this.router.navigate(['/home/']);
   }
 
-  actualizarInfo() {
+  async actualizarInfo() {
+    this.eventosArray = await this.eventsService.obtenerEventos();
+    console.log('ola', this.eventosArray);
     for (let evento of this.eventosArray) {
-      if (evento.id == this.evento.id) {
+      if (evento.id == this.evento.IdEvento) {
         this.evento.Nombre = evento.nombre;
         this.evento.Descripcion = evento.descripcion;
         this.evento.Fecha = evento.fecha;
