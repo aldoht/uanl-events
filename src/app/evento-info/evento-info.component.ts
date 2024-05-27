@@ -11,20 +11,20 @@ import { EventsService } from '../events.service';
 })
 export class EventoInfoComponent implements OnInit {
   id: string = "";
-  evento: EventModel = {
-    id: "",
-    nombre: "",
+  evento: any = {
+    asientos: 0,
+    costo: 0,
+    dependencia: "",
     descripcion: "",
     fecha: "",
     hora: "",
+    id: 0,
     lugar: "",
-    costo: 0,
-    tipo: "",
+    nombre: "",
     organizador: "",
-    dependencia: "",
     privacidad: "Público",
-    asientos: null
-  };
+    tipo: "",
+  }
   eventsArray: EventModel[] = [];
   isModalOpen = false;
   cardNumber: string = '';
@@ -51,10 +51,11 @@ export class EventoInfoComponent implements OnInit {
     if (event) {
       console.log(event);
       this.evento = { ...event };
+      console.log(this.evento);
     }
   }
 
-  eventoPorId(id: string): EventModel | undefined {
+  eventoPorId(id: string): any | undefined {
     return this.eventsService.events.find(evento => evento.id == id);
   }
 
