@@ -23,7 +23,7 @@ export class GestionarEventoComponent  implements OnInit {
     Costo: 0,
     IdCategoria: 1,
     IdUsuario: "",
-    IdDependencia: 1,
+    IdDependencia: 1, 
     EsNumerado: 0,
     Cupo: 0,
     Poster: "poster.jpg"
