@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventModel } from 'src/models/event.model';
 import { EventsService } from '../events.service';
+import { firebaseService } from '../firebase-service.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomePage implements OnInit {
   dependencia: string = "";
   busquedaActiva: boolean = false;
 
-  constructor(private router: Router, private eventsService: EventsService) { }
+  constructor(private router: Router, private eventsService: EventsService, private fbService: firebaseService) { }
 
   async ngOnInit() {
     // Actualizamos eventosArray al iniciar el componente

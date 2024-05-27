@@ -4,6 +4,7 @@ import { EventModel } from 'src/models/event.model';
 import { EventsService } from '../events.service';
 import { concat } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { firebaseService } from '../firebase-service.service';
 
 @Component({
   selector: 'app-gestionar-evento',
@@ -42,7 +43,7 @@ export class GestionarEventoComponent  implements OnInit {
     return arr;
   }
 
-  constructor(private router: Router, private eventsService: EventsService, private http: HttpClient) {
+  constructor(private router: Router, private eventsService: EventsService, private http: HttpClient, private fbService: firebaseService) {
     this.eventosArray = this.eventsService.events;
     this.todasIds = eventsService.Ids;
     this.fechaCompleta = "2024-05-27T00:00:00";
@@ -54,7 +55,7 @@ export class GestionarEventoComponent  implements OnInit {
     this.evento.Fecha = this.fechaCompleta.slice(0,10);
     this.evento.Hora = this.fechaCompleta.slice(11);
     this.evento.IdEvento = +this.evento.IdEvento;
-    this.evento.IdUsuario = 'user1';
+    this.evento.IdUsuario = this.fbService.authUser()?.uid;
     this.evento.Costo = +this.evento.Costo;
     this.evento.IdCategoria = +this.evento.IdCategoria;
     this.evento.Cupo = +this.evento.Cupo;
