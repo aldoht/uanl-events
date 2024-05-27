@@ -8,7 +8,7 @@
 3. Si esto no es suficiente, ejecute:
 > npm install -g @angular/cli
 > npm install -g @ionic/cli
-Además, en cuanto a las funcionalidades de *Firebase*, sólo seleccione Authentication
+3. Además, en cuanto a las funcionalidades de *Firebase*, sólo seleccione Authentication
 4. Abrimos la página en local y ya accedemos a las funcionalidades
 
 ## Funcionalidades
