@@ -6,8 +6,8 @@
     </ion-text>
   </div>
   <div class="input-container">
-    <ion-input labelPlacement="floating" label="Nombre" [(ngModel)]="user.username" name="name"></ion-input>
+    <ion-input labelPlacement="floating" label="Correo" [(ngModel)]="user.mail" name="mail"></ion-input>
     <ion-input type="password" labelPlacement="floating" label="Contraseña" [(ngModel)]="user.passwd" name="name"></ion-input>
-    <ion-button (click)="iniciarSesion()" [disabled]="!user.username || !user.passwd">Iniciar sesión</ion-button>
+    <ion-button (click)="iniciarSesion()" [disabled]="!user.mail || !user.passwd">Iniciar sesión</ion-button>
   </div>
 </div>

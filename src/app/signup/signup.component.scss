@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 95vh;
 }
 
 .main-container > div {
@@ -20,11 +19,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  min-height: 30vh;
   gap: 2rem;
 }
 
-ion-input {
+ion-input, ion-select {
   --background: #f2e8cf;
   --padding-start: 1rem;
   --padding-end: 1rem;

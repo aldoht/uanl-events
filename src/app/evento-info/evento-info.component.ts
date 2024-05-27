@@ -36,23 +36,26 @@ export class EventoInfoComponent implements OnInit {
   @ViewChild('canvas', { static: false }) canvas!: ElementRef<HTMLCanvasElement>;
 
   constructor(private route: ActivatedRoute, private eventsService: EventsService, private router: Router, private modalController: ModalController) {
-    this.eventsArray = eventsService.events;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.eventsService.actualizarEventsArray();
+    this.eventsArray = this.eventsService.events;
+
     this.id = this.route.snapshot.paramMap.get('id') || '';
-    if (this.eventsService.Ids.find(id => id === this.id) === undefined) {
+    if (this.eventsService.Ids.find(id => id == this.id) === undefined) {
       this.router.navigate(["/home/**"]);
       return;
     }
     const event = this.eventoPorId(this.id);
     if (event) {
+      console.log(event);
       this.evento = { ...event };
     }
   }
 
   eventoPorId(id: string): EventModel | undefined {
-    return this.eventsService.events.find(evento => evento.id === id);
+    return this.eventsService.events.find(evento => evento.id == id);
   }
 
   setOpen(isOpen: boolean) {

@@ -3,78 +3,93 @@
     <h1>Gestionar evento</h1>
   </ion-text>
   <div class="input-container">
-    <ion-select (ionChange)="actualizarInfo()" shape="round" [(ngModel)]="evento.id" label="Id" labelPlacement="floating">
+    <ion-select (ionChange)="actualizarInfo()" shape="round" [(ngModel)]="evento.IdEvento" label="Id" labelPlacement="floating">
       <ion-select-option *ngFor="let id of todasIds">{{id}}</ion-select-option>
     </ion-select>
-    <ion-input [disabled]="!evento.id" shape="round" [(ngModel)]="evento.nombre" label="Nombre" labelPlacement="floating"></ion-input>
-    <ion-input [disabled]="!evento.id" shape="round" [(ngModel)]="evento.descripcion" label="Descripción" labelPlacement="floating"></ion-input>
+    <ion-input [disabled]="!evento.IdEvento" shape="round" [(ngModel)]="evento.Nombre" label="Nombre" labelPlacement="floating"></ion-input>
+    <ion-input [disabled]="!evento.IdEvento" shape="round" [(ngModel)]="evento.Descripcion" label="Descripción" labelPlacement="floating"></ion-input>
     <ion-label>Fecha y hora </ion-label>
-    <ion-datetime [disabled]="!evento.id" [(ngModel)]="this.fechaCompleta" min="2024-05-27T00:00:00"></ion-datetime>
-    <ion-input [disabled]="!evento.id" shape="round" [(ngModel)]="evento.lugar" label="Lugar" labelPlacement="floating"></ion-input>
-    <ion-input [disabled]="!evento.id" shape="round" [(ngModel)]="evento.costo" label="Costo" labelPlacement="floating"></ion-input>
-    <ion-select [disabled]="!evento.id" [(ngModel)]="evento.tipo" label="Tipo" labelPlacement="floating" shape="round">
-      <ion-select-option value="Académico">Académico</ion-select-option>
-      <ion-select-option value="AFI">AFI</ion-select-option>
-      <ion-select-option value="Becas">Becas</ion-select-option>
-      <ion-select-option value="Caminata">Caminata</ion-select-option>
-      <ion-select-option value="Campamento">Campamento</ion-select-option>
-      <ion-select-option value="Campaña">Campaña</ion-select-option>
-      <ion-select-option value="Cátedra">Cátedra</ion-select-option>
-      <ion-select-option value="Ceremonia">Ceremonia</ion-select-option>
-      <ion-select-option value="Certamen">Certamen</ion-select-option>
-      <ion-select-option value="Certificación">Certificación</ion-select-option>
-      <ion-select-option value="Ciclo de película">Ciclo de película</ion-select-option>
-      <ion-select-option value="Clase magistral">Clase magistral</ion-select-option>
-      <ion-select-option value="Coloquio">Coloquio</ion-select-option>
-      <ion-select-option value="Concurso">Concurso</ion-select-option>
-      <ion-select-option value="Conferencia">Conferencia</ion-select-option>
-      <ion-select-option value="Congreso">Congreso</ion-select-option>
-      <ion-select-option value="Convocatoria">Convocatoria</ion-select-option>
-      <ion-select-option value="Cultural">Cultural</ion-select-option>
-      <ion-select-option value="Cumbre">Cumbre</ion-select-option>
-      <ion-select-option value="Curso">Curso</ion-select-option>
-      <ion-select-option value="Danza">Danza</ion-select-option>
-      <ion-select-option value="Deportes">Deportes</ion-select-option>
-      <ion-select-option value="Diálogo">Diálogo</ion-select-option>
-      <ion-select-option value="Diplomado">Diplomado</ion-select-option>
-      <ion-select-option value="Emprendimiento">Emprendimiento</ion-select-option>
-      <ion-select-option value="Encuentro">Encuentro</ion-select-option>
-      <ion-select-option value="Espectáculo">Espectáculo</ion-select-option>
-      <ion-select-option value="Espectáculo Danza">Espectáculo Danza</ion-select-option>
-      <ion-select-option value="Eventos">Eventos</ion-select-option>
-      <ion-select-option value="Exposición">Exposición</ion-select-option>
-      <ion-select-option value="Feria">Feria</ion-select-option>
-      <ion-select-option value="Jornada">Jornada</ion-select-option>
-      <ion-select-option value="Masterclass">Masterclass</ion-select-option>
-      <ion-select-option value="Musical">Musical</ion-select-option>
-      <ion-select-option value="Ópera">Ópera</ion-select-option>
-      <ion-select-option value="Pláticas">Pláticas</ion-select-option>
-      <ion-select-option value="Premio">Premio</ion-select-option>
-      <ion-select-option value="Presentación">Presentación</ion-select-option>
-      <ion-select-option value="Programa">Programa</ion-select-option>
-      <ion-select-option value="Recorridos">Recorridos</ion-select-option>
-      <ion-select-option value="Responsabilidad Social">Responsabilidad Social</ion-select-option>
-      <ion-select-option value="Reunión">Reunión</ion-select-option>
-      <ion-select-option value="Seminario">Seminario</ion-select-option>
-      <ion-select-option value="Sesión">Sesión</ion-select-option>
-      <ion-select-option value="Sesión Informativa">Sesión Informativa</ion-select-option>
-      <ion-select-option value="Simposio">Simposio</ion-select-option>
-      <ion-select-option value="Sorteo">Sorteo</ion-select-option>
-      <ion-select-option value="Taller">Taller</ion-select-option>
-      <ion-select-option value="Teatro">Teatro</ion-select-option>
-      <ion-select-option value="Torneo">Torneo</ion-select-option>
-      <ion-select-option value="Transmisión">Transmisión</ion-select-option>
-      <ion-select-option value="Turismo">Turismo</ion-select-option>
-      <ion-select-option value="Webinar">Webinar</ion-select-option>
+    <ion-datetime [disabled]="!evento.IdEvento" [(ngModel)]="this.fechaCompleta" min="2024-05-27T00:00:00"></ion-datetime>
+    <ion-input [disabled]="!evento.IdEvento" shape="round" [(ngModel)]="evento.Lugar" label="Lugar" labelPlacement="floating"></ion-input>
+    <ion-input [disabled]="!evento.IdEvento" shape="round" [(ngModel)]="evento.Costo" label="Costo" labelPlacement="floating"></ion-input>
+    <ion-select [disabled]="!evento.IdEvento" [(ngModel)]="evento.IdCategoria" label="Tipo" labelPlacement="floating" shape="round">
+      <ion-select-option value="1">Académico</ion-select-option>
+      <ion-select-option value="2">AFI</ion-select-option>
+      <ion-select-option value="3">Becas</ion-select-option>
+      <ion-select-option value="4">Caminata</ion-select-option>
+      <ion-select-option value="5">Campamento</ion-select-option>
+      <ion-select-option value="6">Campaña</ion-select-option>
+      <ion-select-option value="7">Cátedra</ion-select-option>
+      <ion-select-option value="8">Ceremonia</ion-select-option>
+      <ion-select-option value="9">Certamen</ion-select-option>
+      <ion-select-option value="10">Certificación</ion-select-option>
+      <ion-select-option value="11">Ciclo de película</ion-select-option>
+      <ion-select-option value="12">Clase magistral</ion-select-option>
+      <ion-select-option value="13">Coloquio</ion-select-option>
+      <ion-select-option value="14">Concurso</ion-select-option>
+      <ion-select-option value="15">Conferencia</ion-select-option>
+      <ion-select-option value="16">Congreso</ion-select-option>
+      <ion-select-option value="17">Convocatoria</ion-select-option>
+      <ion-select-option value="18">Cultural</ion-select-option>
+      <ion-select-option value="19">Cumbre</ion-select-option>
+      <ion-select-option value="20">Curso</ion-select-option>
+      <ion-select-option value="21">Danza</ion-select-option>
+      <ion-select-option value="22">Deportes</ion-select-option>
+      <ion-select-option value="23">Diálogo</ion-select-option>
+      <ion-select-option value="24">Diplomado</ion-select-option>
+      <ion-select-option value="25">Emprendimiento</ion-select-option>
+      <ion-select-option value="26">Encuentro</ion-select-option>
+      <ion-select-option value="27">Espectáculo</ion-select-option>
+      <ion-select-option value="28">Espectáculo Danza</ion-select-option>
+      <ion-select-option value="29">Eventos</ion-select-option>
+      <ion-select-option value="30">Exposición</ion-select-option>
+      <ion-select-option value="31">Feria</ion-select-option>
+      <ion-select-option value="32">Jornada</ion-select-option>
+      <ion-select-option value="33">Masterclass</ion-select-option>
+      <ion-select-option value="34">Musical</ion-select-option>
+      <ion-select-option value="35">Ópera</ion-select-option>
+      <ion-select-option value="36">Pláticas</ion-select-option>
+      <ion-select-option value="37">Premio</ion-select-option>
+      <ion-select-option value="38">Presentación</ion-select-option>
+      <ion-select-option value="39">Programa</ion-select-option>
+      <ion-select-option value="40">Recorridos</ion-select-option>
+      <ion-select-option value="41">Responsabilidad Social</ion-select-option>
+      <ion-select-option value="42">Reunión</ion-select-option>
+      <ion-select-option value="43">Seminario</ion-select-option>
+      <ion-select-option value="44">Sesión</ion-select-option>
+      <ion-select-option value="45">Sesión Informativa</ion-select-option>
+      <ion-select-option value="46">Simposio</ion-select-option>
+      <ion-select-option value="47">Sorteo</ion-select-option>
+      <ion-select-option value="48">Taller</ion-select-option>
+      <ion-select-option value="49">Teatro</ion-select-option>
+      <ion-select-option value="50">Torneo</ion-select-option>
+      <ion-select-option value="51">Transmisión</ion-select-option>
+      <ion-select-option value="52">Turismo</ion-select-option>
+      <ion-select-option value="53">Webinar</ion-select-option>
     </ion-select>
-    <ion-input [disabled]="!evento.id" shape="round" [(ngModel)]="evento.organizador" label="Organizador" labelPlacement="floating"></ion-input>
-    <ion-input [disabled]="!evento.id" shape="round" [(ngModel)]="evento.dependencia" label="Dependencia" labelPlacement="floating"></ion-input>
-    <ion-select [disabled]="!evento.id" [(ngModel)]="evento.privacidad" label="Privacidad" shape="round" labelPlacement="floating">
+    <ion-select [disabled]="!evento.IdEvento" shape="round" [(ngModel)]="evento.IdDependencia" label="Dependencia" labelPlacement="floating">
+      <ion-select-option value="1">Rectoría</ion-select-option>
+      <ion-select-option value="2">FCFM</ion-select-option>
+      <ion-select-option value="3">FCB</ion-select-option>
+      <ion-select-option value="4">FIME</ion-select-option>
+      <ion-select-option value="5">FCQ</ion-select-option>
+      <ion-select-option value="6">FACPYA</ion-select-option>
+      <ion-select-option value="7">FAECO</ion-select-option>
+      <ion-select-option value="8">FAEN</ion-select-option>
+      <ion-select-option value="9">FACPYRI</ion-select-option>
+      <ion-select-option value="10">FARQ</ion-select-option>
+    </ion-select>
+    <ion-select [disabled]="!evento.idEvento" [(ngModel)]="privacidad" label="Privacidad" shape="round" labelPlacement="floating">
       <ion-select-option value="Público">Público</ion-select-option>
       <ion-select-option value="Privado">Privado</ion-select-option>
     </ion-select>
+    <ion-input (ionChange)="arrayNumber = getNumberArray(evento.Cupo)" [disabled]="!evento.idEvento" shape="round" [(ngModel)]="evento.Cupo" label="Cantidad de Asientos" labelPlacement="floating"></ion-input>
+    <ion-list *ngIf="privacidad == 'Privado' && evento.asientos">
+      <ion-item *ngFor="let i of arrayNumber">
+        <ion-input shape="round" label="Invitado" labelPlacement="floating"></ion-input>
+      </ion-item>
+    </ion-list>
     <ion-label>Si no es numerado, deje vacío el siguiente campo</ion-label>
-    <ion-input [disabled]="!evento.id" shape="round" [(ngModel)]="evento.asientos" label="Cantidad de Asientos" labelPlacement="floating"></ion-input>
     <ion-button (click)="modificarInfo()" shape="round" [disabled]="this.evento.nombre == '' || this.evento.descripcion == '' || this.evento.lugar == '' || this.evento.tipo == '' || this.evento.organizador == '' || this.evento.dependencia == ''">Guardar cambios</ion-button>
   </div>
 </ion-content>

@@ -16,11 +16,12 @@ export class HomePage implements OnInit {
 
   constructor(private router: Router, private eventsService: EventsService) { }
 
-  ngOnInit(): void {
-    /** Si no está loggeado, usar esta línea */
-    // this.router.navigate(['/home/login']);
+  async ngOnInit() {
+    // Actualizamos eventosArray al iniciar el componente
+    await this.eventsService.actualizarEventsArray();
+    this.eventosArray = this.eventsService.events;
 
-    // Inicialmente, mostramos todos los eventos
+    // Mostramos todos los eventos al inicio
     this.eventosFiltrados = this.eventosArray;
   }
 

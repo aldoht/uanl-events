@@ -1,14 +1,33 @@
-<div class="main-container">
-  <div class="input-text">
-    <ion-text>
-      <h2>Crea tu cuenta</h2>
-      <small>¿Ya tienes una cuenta? <a [routerLink]="'/home/login/'">Inicia sesión</a></small>
-    </ion-text>
+<ion-content>
+  <div class="main-container">
+    <div class="input-text">
+      <ion-text>
+        <h2>Crea tu cuenta</h2>
+        <small>¿Ya tienes una cuenta? <a [routerLink]="'/home/login/'">Inicia sesión</a></small>
+      </ion-text>
+    </div>
+    <div class="input-container">
+      <ion-input [(ngModel)]="user.nombre" label="Nombre" labelPlacement="floating"></ion-input>
+      <ion-input [(ngModel)]="user.apellidoPaterno" label="Apellido Paterno" labelPlacement="floating"></ion-input>
+      <ion-input [(ngModel)]="user.apellidoMaterno" label="Apellido Materno" labelPlacement="floating"></ion-input>
+      <ion-select [(ngModel)]="user.dependencia" label="Dependencia" label-placement="floating">
+        <ion-select-option value=1>Rectoría</ion-select-option>
+        <ion-select-option value=2>FCFM</ion-select-option>
+        <ion-select-option value=3>FIME</ion-select-option>
+        <ion-select-option value=4>FCQ</ion-select-option>
+        <ion-select-option value=5>FACPYA</ion-select-option>
+        <ion-select-option value=6>FAECO</ion-select-option>
+        <ion-select-option value=7>FAEN</ion-select-option>
+        <ion-select-option value=8>FACPYRI</ion-select-option>
+        <ion-select-option value=9>FARQ</ion-select-option>
+      </ion-select>
+      <ion-input [(ngModel)]="user.telefono" label="Teléfono" labelPlacement="floating"></ion-input>
+      <ion-input [(ngModel)]="user.correo" label="Correo" labelPlacement="floating"></ion-input>
+      <ion-input [(ngModel)]="user.passwd" label="Contraseña" type="password" labelPlacement="floating"></ion-input>
+      <ion-button
+        (click)="crearUsuario()"
+        [disabled]="!user.nombre || !user.dependencia || !user.apellidoPaterno || !user.apellidoMaterno || !user.telefono || !user.correo || !user.passwd" 
+      >Crear cuenta</ion-button>
+    </div>
   </div>
-  <div class="input-container">
-    <ion-input [(ngModel)]="user.username" label="Usuario" labelPlacement="floating"></ion-input>
-    <ion-input [(ngModel)]="user.correo" label="Correo" labelPlacement="floating"></ion-input>
-    <ion-input [(ngModel)]="user.passwd" label="Contraseña" type="password" labelPlacement="floating"></ion-input>
-    <ion-button (click)="crearUsuario()" [disabled]="!user.username || !user.passwd || !user.passwd" >Crear cuenta</ion-button>
-  </div>
-</div>
+</ion-content>
